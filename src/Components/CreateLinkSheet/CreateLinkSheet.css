@@ -1,0 +1,25 @@
+.create-link-sheet {
+  padding: 2rem 2rem 18rem 2rem;
+}
+
+input[type=submit] {
+  background-color: #ee6123;
+  color: #fff;
+  font-family: "Proxima Nova Semibold", Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: 40px;
+  border-radius: 3px;
+  cursor: pointer;
+  text-transform: uppercase;
+ 
+}
+
+.text-field {
+  border: 1px solid #d3d4d7;
+  position: relative;
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 80px;
+  box-sizing: border-box;
+  padding: 3.1rem 1rem 0 .9rem;
+}
