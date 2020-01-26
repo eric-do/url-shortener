@@ -1,6 +1,11 @@
-const createURL = (url, cb) => {  
+import axios from 'axios';
+
+const createURL = async (url, cb) => {  
   console.log('Create URL code');
-  cb();
+  const options = { url }
+  console.log(options)
+  const key = await axios.post('/urls', options);
+  cb(key);
 }
 
 const isValidUrl = url => {

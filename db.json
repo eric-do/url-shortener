@@ -1,0 +1,45 @@
+{
+  "urls": [
+    {
+      "id": 1,
+      "url": "www.google.com",
+      "author": "testurl"
+    },
+    {
+      "url": "www.reddit.com",
+      "id": 2
+    },
+    {
+      "url": "test",
+      "id": 3
+    },
+    {
+      "url": "www.galvanize.com",
+      "id": 4
+    },
+    {
+      "url": "www.eric.com",
+      "id": 5
+    },
+    {
+      "url": "",
+      "id": 6
+    },
+    {
+      "url": "http://localhost:3001/",
+      "id": 7
+    },
+    {
+      "url": "www.reddit.com",
+      "id": 8
+    },
+    {
+      "url": "www.google.com",
+      "id": 9
+    },
+    {
+      "url": "www.google.com",
+      "id": 10
+    }
+  ]
+}

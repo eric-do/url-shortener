@@ -1,25 +1,71 @@
 .create-link-sheet {
-  padding: 2rem 2rem 18rem 2rem;
-}
-
-input[type=submit] {
-  background-color: #ee6123;
-  color: #fff;
-  font-family: "Proxima Nova Semibold", Arial, Helvetica, sans-serif;
-  width: 100%;
-  height: 40px;
-  border-radius: 3px;
-  cursor: pointer;
-  text-transform: uppercase;
- 
+  padding: 2rem 10% 18rem 10%;
+  width: 80%;
+  justify-content: center;
 }
 
 .text-field {
   border: 1px solid #d3d4d7;
+  border-radius: 3px;
   position: relative;
   margin-bottom: 1rem;
   width: 100%;
-  height: 80px;
+  min-height: 80px;
+  height: auto;
   box-sizing: border-box;
-  padding: 3.1rem 1rem 0 .9rem;
+  padding: 3rem 1rem 0 .9rem;
+}
+
+.text-field-active {
+  border: 1px solid #ee6123;
+  background-color: #FDF2E9 ;  
+}
+
+.text-field-inactive {
+  border: 1px solid #d3d4d7;
+  
+}
+
+.text-field-label {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #36383b;
+  left: 1rem;
+  top: 1rem;
+  position: absolute;
+}
+
+.text-field-area {
+  color: #828387;
+  background-color: transparent;
+  resize: none;
+  border: 0px;
+  width: 100%;
+  overflow: hidden;
+  outline: none;
+}
+
+.submit-container {
+  border-top: 1px solid #d3d4d7;
+  background-color: #fff;
+  height: 80px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+}
+
+.submit-button {
+  width: 80%;
+  margin: 0 10% 0 10%;
+  font-weight: 600;
+  font-size: 13px;
+  background-color: #ee6123;
+  color: #fff;
+  height: 40px;
+  border-radius: 3px;
+  cursor: pointer;
+  text-transform: uppercase;
 }

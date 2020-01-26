@@ -6,6 +6,9 @@ const RightSlider = props => {
 
   return (
     <div className="right-slider">
+      <div className="slider-header">
+        <div>create link</div>
+      </div>
       { props.children }
     </div>
   )
