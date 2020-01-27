@@ -2,14 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import "./RightSlider.css";
 
-const RightSlider = props => {
+const RightSlider = ({ action, children }) => {
+
+  
+  const renderHeader = () => {
+    const headerTitles = {
+      create: <div>create link</div>
+    }
+
+    return headerTitles[action];
+  }
 
   return (
     <div className="right-slider">
       <div className="slider-header">
-        <div>create link</div>
+        { renderHeader() }
       </div>
-      { props.children }
+      { children }
     </div>
   )
 }
