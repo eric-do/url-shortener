@@ -6,7 +6,7 @@ router.post('/api/urls', (req, res) => {
   Controllers.createUrl(req, res);
 })
 
-router.get('/api/urls/:key', (req, res) => {
+router.get('/:key', (req, res) => {
   Controllers.handleUrlRedirect(req, res);
 })
 

@@ -15,7 +15,6 @@ const urlSchema = new mongoose.Schema({
   alias: {
     type: String,
     unique: true,
-    default: null
   },
   key: {
     type: String,
