@@ -8,8 +8,12 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
+    "express": "^4.17.1",
+    "md5": "^2.2.1",
+    "mongoose": "^5.8.10",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.0",
@@ -18,8 +22,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test:react": "react-scripts test",
+    "test:server": "mocha server/test --exit",
+    "eject": "react-scripts eject",
+    "server:dev": "nodemon server/index.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,5 +41,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^7.0.1",
+    "nodemon": "^2.0.2"
   }
 }
