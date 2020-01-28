@@ -13,11 +13,14 @@ it('renders without crashing', () => {
 
 it('renders inactive text field', () => {
   const { getByText } = render(<CreateLinkSheet />);
-  const textField = getByText('paste long url');
+  getByText('paste long url');
 });
 
-xit('renders active text field when focused', () => {
-
+it('renders active text field when focused', () => {
+  const { getByLabelText } = render(<CreateLinkSheet />);
+  const inputNode = getByLabelText('paste long url');
+  
+  fireEvent.click(inputNode);
 });
 
 xit('Makes POST request on submit click', async () => {

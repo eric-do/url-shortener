@@ -15,11 +15,13 @@ const urlSchema = new mongoose.Schema({
   alias: {
     type: String,
     unique: true,
+    sparse: true
   },
   key: {
     type: String,
     required: [true, "Key is required"],
-    unique: true
+    unique: true,
+    sparse: true
   },
   username: {
     required: false

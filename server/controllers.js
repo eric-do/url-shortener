@@ -8,6 +8,7 @@ const createUrl = async (req, res) => {
     await Model.createUrl({ ...req.body, key });
     res.send(key);
   } catch (err) {  
+    console.log(err);
     res.status(400).send('Could not add url');
   }
 }

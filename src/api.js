@@ -1,11 +1,13 @@
 import axios from 'axios';
 
 const createURL = async (url, cb) => {  
-  console.log('Create URL code');
   const options = { url }
-  console.log(options)
-  const key = await axios.post('/urls', options);
-  cb(key);
+  try {
+    const { data } = await axios.post('/api/urls', options);
+    cb(data);
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 const isValidUrl = url => {
