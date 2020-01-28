@@ -10,10 +10,23 @@
   position: relative;
   margin-bottom: 1rem;
   width: 100%;
-  min-height: 80px;
   height: auto;
   box-sizing: border-box;
+}
+
+.text-field-url {
+  min-height: 80px;
   padding: 3rem 1rem 0 .9rem;
+}
+
+.text-field-title {
+  min-height: 30px;
+  padding: 2rem 1rem 0 .9rem;
+}
+
+.text-field-customize {
+  min-height: 30px;
+  padding: 2rem 1rem 0 .9rem;
 }
 
 .text-field-active {

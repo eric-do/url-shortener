@@ -28,7 +28,7 @@ const CreateLink = ({ setKey }) => {
   return (
       <form onSubmit={submitHandler}>
         <div
-          className={isActive ? "text-field text-field-active" : "text-field text-field-inactive"}
+          className={isActive ? "text-field text-field-url text-field-active" : "text-field text-field-url text-field-inactive"}
           onFocus={() => setActive(true)}
           onBlur={() => setActive(false)}
         >
