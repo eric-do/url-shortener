@@ -1,13 +1,8 @@
 import React, { useState, useReducer } from "react";
 import "./CreateLinkSheet.css";
 
-const UpdateLink = ({ setInput, name, value }) => {
+const UpdateLink = ({ setInput, name, value, label, onPaste = () => {} }) => {
   const [isActive, setActive] = useState(false);
-
-  const inputHandler = event => {
-    const { name, value } = event.target;
-    setInput({ [name]: value });
-  };
 
   return (
     <div
@@ -20,14 +15,15 @@ const UpdateLink = ({ setInput, name, value }) => {
       onBlur={() => setActive(false)}
     >
       <label htmlFor={`${name}-input`} className="text-field-label">
-        title
+        { label }
       </label>
       <textarea
         id={`${name}-input`}
         className="text-field-area"
-        name="title"
+        name={name}
         value={value}
-        onChange={inputHandler}
+        onPaste={onPaste}
+        onChange={setInput}
       />
     </div>
   );

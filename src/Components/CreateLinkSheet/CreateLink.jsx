@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import UrlValidationIcon from "./UrlValidationIcon.jsx";
 import { createURL, isValidUrl } from "../../api.js";
+import FormInput from "./FormInput.jsx";
 import "./CreateLinkSheet.css";
 
 const CreateLink = ({ setKey }) => {
@@ -10,14 +11,16 @@ const CreateLink = ({ setKey }) => {
 
   const urlInputHandler = event => {
     const url = event.target.value;
-
     setValid(isValidUrl(url));
     setUrl(url);
   };
 
   const urlPasteHandler = event => {
-    setUrl(event.target.value);
-    createURL(url, () => console.log("finished"));
+    const value = event.clipboardData.getData('text');
+    setTimeout(() => {
+      setUrl(value);
+      createURL(value, key => setKey(key));
+    }, 500);
   };
 
   const submitHandler = async event => {
@@ -26,28 +29,22 @@ const CreateLink = ({ setKey }) => {
   };
 
   return (
-      <form onSubmit={submitHandler}>
-        <div
-          className={isActive ? "text-field text-field-url text-field-active" : "text-field text-field-url text-field-inactive"}
-          onFocus={() => setActive(true)}
-          onBlur={() => setActive(false)}
-        >
-          <label htmlFor="url-input" className="text-field-label">paste long url</label>
-          <textarea
-            id="url-input"
-            className="text-field-area"
-            value={url}
-            onPaste={urlPasteHandler}
-            onChange={urlInputHandler}
-            placeholder="enter"
-          />
-        </div>
-        <UrlValidationIcon isValid={isValid} />
-        <div className="submit-container">
-          <input className="submit-button" type="submit" value="CREATE" />
-
-        </div>
-      </form>
+    <form onSubmit={submitHandler}>
+      <FormInput
+        setInput={urlInputHandler}
+        name="url"
+        value={url}
+        label="paste long url"
+        onPaste={urlPasteHandler}
+      />
+      <UrlValidationIcon isValid={isValid} />
+      <div className="submit-container">
+        <input 
+          className="submit-button" 
+          type="submit" 
+          value="CREATE" />
+      </div>
+    </form>
   );
 };
 

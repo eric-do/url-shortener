@@ -1,15 +1,19 @@
 const { generateKey } = require('./keygen/keygen.js');
 const Model = require('./models.js');
 
-const createUrl = async (req, res) => {
+const hashUrlAndInsertKey = async (req, res) => {
   const key = generateKey(req.body.url);
+  const hash = await insertKey(req.body, key)
+  res.send(hash)
+}
 
+const insertKey = async (data, key) => {
   try {
-    await Model.createUrl({ ...req.body, key });
-    res.send(key);
+    await Model.createUrl({ ...data, key });
+    return key;
   } catch (err) {  
-    console.log(err);
-    res.status(400).send('Could not add url');
+    const newKey = generateKey(key);
+    return await insertKey(data, newKey);
   }
 }
 
@@ -25,6 +29,6 @@ const handleUrlRedirect = async ( req, res ) => {
 }
 
 module.exports = {
-  createUrl,
+  hashUrlAndInsertKey,
   handleUrlRedirect
 }

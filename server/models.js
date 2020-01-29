@@ -1,4 +1,4 @@
-const { Url } = require('./db/mongo.js');
+const { Url } = require('./db-mongoose');
 
 const createUrl =  (data, cb) => {
   const { url, key } = data;

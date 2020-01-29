@@ -52,7 +52,7 @@ describe('user successfully updates link', () => {
     getByText('testkey');
     getByLabelText('title');
     getByLabelText('customize back-half');
-    getbyText('save');
+    getByText('save');
   });
   
   it('successfully updates link', async () => {
