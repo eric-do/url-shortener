@@ -14,6 +14,7 @@ const updateUrl = async (properties, cb) => {
     const url = await Url.findOneAndUpdate({ key: properties.key }, properties, {
       new: true
     });
+    console.log(url)
     cb(null, url)
   } catch (e) {
     cb(e)

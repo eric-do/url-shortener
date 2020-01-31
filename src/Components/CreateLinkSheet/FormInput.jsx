@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useState } from "react";
 import "./CreateLinkSheet.css";
 
 const UpdateLink = ({ setInput, name, value, label, onPaste = () => {} }) => {

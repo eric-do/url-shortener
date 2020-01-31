@@ -7,7 +7,6 @@ import "./CreateLinkSheet.css";
 const CreateLink = ({ setKey }) => {
   const [url, setUrl] = useState("");
   const [isValid, setValid] = useState(null);
-  const [isActive, setActive] = useState(false);
 
   const urlInputHandler = event => {
     const url = event.target.value;
@@ -15,17 +14,26 @@ const CreateLink = ({ setKey }) => {
     setUrl(url);
   };
 
+  const setKeyCB = (err, key) => {
+    if (err) {
+      console.log('Error creating key');
+      setKey(null)
+    } else {
+      setKey(key);
+    }
+  }
+
   const urlPasteHandler = event => {
     const value = event.clipboardData.getData('text');
     setTimeout(() => {
       setUrl(value);
-      createURL(value, key => setKey(key));
+      createURL(value, setKeyCB);
     }, 500);
   };
 
   const submitHandler = async event => {
     event.preventDefault();
-    createURL(url, key => setKey(key));
+    createURL(url, setKeyCB);
   };
 
   return (

@@ -17,6 +17,10 @@ const urlSchema = new mongoose.Schema({
     unique: true,
     sparse: true
   },
+  title: {
+    type: String,
+    unique: false
+  },
   key: {
     type: String,
     required: [true, "Key is required"],
