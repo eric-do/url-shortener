@@ -28,7 +28,20 @@ const handleUrlRedirect = async ( req, res ) => {
   }
 }
 
+const updateUrl = (req, res) => {
+  const properties = req.body;
+  
+  Model.updateUrl(properties, (err, url) => {
+    if (err) {
+      res.status(400).send('Could not edit URL');
+    } else {
+      res.send(url);
+    }
+  });
+}
+
 module.exports = {
   hashUrlAndInsertKey,
-  handleUrlRedirect
+  handleUrlRedirect,
+  updateUrl
 }

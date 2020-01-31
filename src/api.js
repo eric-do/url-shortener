@@ -10,6 +10,15 @@ const createURL = async (url, cb) => {
   }
 }
 
+const updateUrl = async (properties, cb) => {  
+  try {
+    const { data } = await axios.patch('/api/urls', properties);
+    cb(data);
+  } catch (e) {
+    console.log(e);
+  }
+}
+
 const isValidUrl = url => {
   const regex = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/g;
   return url.search(regex) !== -1;

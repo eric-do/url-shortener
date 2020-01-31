@@ -9,7 +9,19 @@ const getUrl = key => {
   return Url.findOne({key});
 }
 
+const updateUrl = async (properties, cb) => {
+  try {
+    const url = await Url.findOneAndUpdate({ key: properties.key }, properties, {
+      new: true
+    });
+    cb(null, url)
+  } catch (e) {
+    cb(e)
+  }
+}
+
 module.exports = {
   createUrl,
-  getUrl
+  getUrl,
+  updateUrl
 }

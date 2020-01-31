@@ -10,4 +10,8 @@ router.get('/:key', (req, res) => {
   Controllers.handleUrlRedirect(req, res);
 })
 
+router.patch('/:key', (req, res) => {
+  Controllers.updateUrl(req, res);
+})
+
 module.exports = router;
