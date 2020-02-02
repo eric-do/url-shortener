@@ -55,18 +55,15 @@ describe('user successfully updates link', () => {
     getByText('save');
   });
   
-  it('successfully updates link', async () => {
+  it('successfully makes network request to update link', async () => {
     const { getByText } = render(updateLink);
         
-    axiosMock.post.mockResolvedValueOnce();
+    axiosMock.patch.mockResolvedValueOnce();
     fireEvent.click(getByText('save'))
-    await waitForElement(() => getByText('link has been edited'));
     expect(axiosMock.post).toHaveBeenCalledTimes(1);
+    await waitForElement(() => getByText('link has been edited.'));
   })
 });
-
-
-
 
 xit('Makes POST request on paste', async () => {
   const { getByLabelText, getByText } = render(<CreateLinkSheet />);
