@@ -6,4 +6,4 @@ export default {
   component: Calendar,
 };
 
-export const Text = () => <Calendar />;
+export const calendar = () => <Calendar />;
