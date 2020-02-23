@@ -1,4 +1,5 @@
 const { Url } = require('./db-mongoose');
+const Cassandra = require('./db-cassandra');
 
 const createUrl =  (data, cb) => {
   const { url, key } = data;
