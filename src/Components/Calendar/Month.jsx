@@ -9,15 +9,30 @@
 import React from 'react';
 import Day from './Day.jsx';
 import styled from 'styled-components';
+import { getMonthAsMatrix, getZeroIndexMonth } from '../../Utils/calender.js';
 
-const MonthWrapper = styled.div``;
+const MonthWrapper = styled.div`
+  width: 300px;
+`;
 const WeekWrapper = styled.div`
   display: flex;
   flex-direction: row;
 `;
 
+const MonthLabel = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const WeekdayLabel = styled.div`
+  width: 14.29%;
+  width: calc(100% / 7);
+  border: 1px solid black;
+`;
+
 const Month = ({ date }) => {
-  const currentMonth = date.getMonth();
+  const month = getMonthAsMatrix(date);
+
   const months = [
     'January', 
     'February',
@@ -32,12 +47,34 @@ const Month = ({ date }) => {
     'December'
   ];
 
+  const days = [
+    'Sun',
+    'Mon',
+    'Tues',
+    'Wed',
+    'Thurs',
+    'Fri',
+    'Sat'
+  ]
+
   return (
     <MonthWrapper>
-      { months[currentMonth] }
+      <MonthLabel>{ months[getZeroIndexMonth(date)] }</MonthLabel>
       <WeekWrapper>
-        <Day /><Day /><Day /><Day /><Day /><Day /><Day />
+        {
+          days.map(day => <WeekdayLabel>{ day }</WeekdayLabel>)
+        }
       </WeekWrapper>
+      {
+        month.map(week => (
+          <WeekWrapper>
+            {
+              week.map(day => <Day day={day} /> )
+            }
+          </WeekWrapper>
+        ))
+      }
+
     </MonthWrapper>
   )
 }

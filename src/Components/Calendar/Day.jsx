@@ -8,14 +8,16 @@ import styled from 'styled-components';
 const DayWrapper = styled.div`
   width: 14.29%;
   width: calc(100% / 7);
+  height: 0;
+  padding-bottom: calc(100% / 7);
   border: 1px solid black;
 `;
 
-const Day = ({ curDate, calDate }) => {
+const Day = ({ day }) => {
   // const isActive = calDate.getDate() > curDate.getDate() ? true : false;
   return (
     <DayWrapper>
-      Day
+      { day === 0 ? '' : day.getDate() }
     </DayWrapper>
   )
 }
