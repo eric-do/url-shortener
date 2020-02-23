@@ -6,7 +6,4 @@ const client = new cassandra.Client({
   keyspace: 'bitly'
 });
 
-const query = 'SELECT * FROM urls';
-
-client.execute(query)
-  .then(result => console.log('User with email %s', result.rows[0]));
+module.exports = client;

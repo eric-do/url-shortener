@@ -46,8 +46,9 @@ describe('Server test', () => {
   });
 
   it('should successfully redirect if passed a valid key', done => {
+    console.log(key)
     chai.request(app)
-      .get(`/${key}`)
+      .get(`/api/urls/${key}`)
       .end((err, res) => {
         expect(err).to.be.null;
         expect(res).to.have.status(200);

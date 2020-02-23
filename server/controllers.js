@@ -17,13 +17,22 @@ const insertKey = async (data, key) => {
   }
 }
 
+const getValidUrl = str => {
+  try {
+    new URL(str);
+    return str;
+  } catch (err) {
+    return `http://${str}`;
+  }
+}
+
 const handleUrlRedirect = async ( req, res ) => {
   const { key } = req.params;
-
   try {
     const data = await Model.getUrl(key);
-    res.status(301).redirect(`http://${data.url}`);
+    res.status(301).redirect(`${getValidUrl(data.url)}`);
   } catch (err) {
+    console.log(err);
     res.status(400).send('Could not find key');
   }
 }
